@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Oemfoeland 6</title>
+        <link rel="stylesheet" href="style.css" media="screen" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="utils.js"></script>
+    </head>
+    <body>
+        <canvas id="main_canvas" width="640" height="480"></canvas>
+        <br/>
+        <div class="toolbox">
+            <div class="tool tool_color"><div class="tool_color_content" style="background: #FF0000;"></div></div>
+            <div class="tool tool_color"><div class="tool_color_content" style="background: #FFFF00;"></div></div>
+            <div class="tool tool_color"><div class="tool_color_content" style="background: #00FF00;"></div></div>
+            <div class="tool tool_color"><div class="tool_color_content" style="background: #00FFFF;"></div></div>
+            <div class="tool tool_color"><div class="tool_color_content" style="background: #0000FF;"></div></div>
+            <div class="tool tool_color"><div class="tool_color_content" style="background: #FF00FF;"></div></div>
+            <div class="tool tool_color"><div class="tool_color_content" style="background: #000000;"></div></div>
+        </div>
+        <br/>
+        <input type="text" id="fldName" value="image"/>
+        <input type="button" id="btnSave" value="Save"/>
+        <input type="button" id="btnLoad" value="Load"/>
+        
+        <script type="text/javascript">
+            var canvas = document.getElementById("main_canvas");
+            var c = canvas.getContext("2d");
+            var getCursorPosition = makeGetCursorPositionFunction(canvas);
+            var downX = -1, downY = -1;
+            var down = false;
+            
+            function mousedrag(x, y)
+            {
+                c.moveTo(downX, downY);
+                c.lineTo(x, y);
+                c.stroke();
+                downX = x;
+                downY = y;
+            }
+            
+            $(function()
+            {
+                var hCanvas = $('#main_canvas');
+                var btnSave = $('#btnSave');
+                var btnLoad = $('#btnLoad');
+                var fldName = $('#fldName');
+                var toolColor = $('.tool_color');
+                var body = $('body');
+                
+                hCanvas.mousemove(function(e)
+                {
+                    var pos = getCursorPosition(e);
+                    var x = pos % 100000;
+                    var y = ~~(pos / 100000);
+                    if (down)
+                        mousedrag(x, y);
+                });
+                
+                hCanvas.mousedown(function(e)
+                {
+                    var pos = getCursorPosition(e);
+                    var x = pos % 100000;
+                    var y = ~~(pos / 100000);
+                    downX = x;
+                    downY = y;
+                    down = true;
+                    c.beginPath();
+                    mousedrag(x, y);
+                });
+                
+                body.mouseup(function()
+                {
+                    down = false;
+                    downX = -1;
+                    downY = -1;
+                });
+                
+                btnLoad.click(function()
+                {
+                    canvas.width = canvas.width;
+                    var data = localStorage.getItem(fldName.val());
+                    var img = new Image();
+                    img.src = data;
+                    img.onload = function()
+                    {
+                        c.drawImage(img, 0, 0);
+                    }
+                });
+                
+                btnSave.click(function()
+                {
+                    localStorage[fldName.val()] = canvas.toDataURL('image/png;base64');
+                });
+                
+                toolColor.click(function()
+                {
+                    c.strokeStyle = $(this).find('.tool_color_content').css('background');
+                    toolColor.removeClass('selected');
+                    $(this).addClass('selected');
+                });
+            });
+        </script>
+    </body>
+</html>

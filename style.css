@@ -1,0 +1,41 @@
+body
+{
+    font-family: Lucida Grande, Tahoma, sans-serif;
+    font-size: 11px;
+}
+
+#main_canvas
+{
+    border: 1px solid #CCC;
+}
+
+.toolbox
+{
+    border: 1px solid #CCC;
+    height: 26px;
+    background: #EEE;
+    width: 636px;
+    padding: 2px;
+}
+
+.tool
+{
+    width: 16px;
+    height: 16px;
+    border: 1px solid #EEE;
+    padding: 4px;
+    margin-right: 2px;
+    float: left;
+}
+
+.tool:hover, .tool.selected
+{
+    border: 1px solid #CCC;
+    background: #FFF;
+}
+
+.tool_color_content
+{
+    width: 16px;
+    height: 16px;
+}
