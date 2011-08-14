@@ -1,0 +1,30 @@
+.tool_color_content
+{
+    width: 16px;
+    height: 16px;
+}
+
+.tool_line_width_content
+{
+    width: 16px;
+    background: #000;
+    border-top: 1px solid;
+}
+
+.tool_type_content
+{
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+}
+
+.tool_type_content[tool='pencil']
+{
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAiElEQVQ4EZ2RgQ2AIAwEiyvhTOwkM+lMSAk1pTSGpwkpKd75BCKi0ldteB0KYRFcWsAwLLECWOIJoGsMghSJeNVavgoLAhMd5C1UQwIhkRQiCPkRHOsimKjVFFqwlUILphQl3Tz7fREr+FJcscGT1A7aE5ph6X+mkE858r6TM7dz7N/oLrUzfAEiyxoOvChI0wAAAABJRU5ErkJggg==);
+}
+
+.tool_type_content[tool='rect']
+{
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAANklEQVQ4EWNgGGjAiOSA/0hsYpjIesHqSTEArpaJGKvwqRk1gIFh4MOABS2K4PGLJj7KxRMCADKaBBFuJhW3AAAAAElFTkSuQmCC);
+}
+

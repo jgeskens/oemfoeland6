@@ -22,3 +22,13 @@ function makeGetCursorPositionFunction(canvas)
     }
     return getCursorPosition;
 }
+
+function disableSelection(element, cursor)
+{
+    element.onselectstart = function() {
+        return false;
+    };
+    element.unselectable = "on";
+    element.style.MozUserSelect = "none";
+    element.style.cursor = cursor;
+}

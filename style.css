@@ -4,6 +4,11 @@ body
     font-size: 11px;
 }
 
+.clear
+{
+    clear: both;
+}
+
 #main_canvas
 {
     border: 1px solid #CCC;
@@ -11,31 +16,38 @@ body
 
 .toolbox
 {
-    border: 1px solid #CCC;
-    height: 26px;
-    background: #EEE;
+    border: 1px solid #BBB;
+    /*height: 26px;*/
+    background: #DDD;
     width: 636px;
-    padding: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0;
+    padding-bottom: 2px;
+    clear: both;
 }
 
 .tool
 {
     width: 16px;
     height: 16px;
-    border: 1px solid #EEE;
+    border: 1px solid #BBB;
     padding: 4px;
     margin-right: 2px;
+    margin-top: 2px;
     float: left;
 }
 
-.tool:hover, .tool.selected
+.tool:hover, .toolbox .selected
 {
-    border: 1px solid #CCC;
+    border: 1px solid #BBB;
     background: #FFF;
 }
 
-.tool_color_content
+.tool_label
 {
-    width: 16px;
-    height: 16px;
+    float: left;
+    margin-right: 2px;
+    padding: 4px;
 }
+
