@@ -37,6 +37,7 @@ $(function()
     var btnSave = $('#btnSave');
     var btnLoad = $('#btnLoad');
     var btnDownload = $('#btnDownload');
+    var btnErase = $('#btnErase');
     var fldName = $('#fldName');
     var toolColor = $('.tool_color');
     var toolLineWidth = $('.tool_line_width');
@@ -125,5 +126,10 @@ $(function()
         changeTool(tools[tool]);
         toolType.removeClass('selected');
         $(this).addClass('selected');
+    });
+    
+    btnErase.click(function()
+    {
+        c.clearRect(0, 0, canvas.width, canvas.height);
     });
 });

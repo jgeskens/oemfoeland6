@@ -8,8 +8,13 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     </head>
     <body id="body">
-        <canvas id="main_canvas" width="640" height="480"></canvas>
-        <br/>
+        <div class="buttons">
+            <input type="text" id="fldName" value="image"/>
+            <input type="button" id="btnSave" value="Save"/>
+            <input type="button" id="btnLoad" value="Load"/>
+            <input type="button" id="btnErase" value="Erase"/>
+            <input type="button" id="btnDownload" value="Download"/>
+        </div>
         <div class="toolbox">
             <div class="tool_label">Color:</div>
             <div class="tool tool_color selected"><div class="tool_color_content" style="background: #000000;"></div></div>
@@ -41,14 +46,11 @@
             <div class="tool tool_type"><div class="tool_type_content" tool="rect"></div></div>
             <div class="tool tool_type"><div class="tool_type_content" tool="oval"></div></div>
             
-            <div class="tool_label"><label><input id="chkFill" type="checkbox"/>Fill</label></div>
+            <div class="tool"><label><input id="chkFill" type="checkbox"/>Fill</label></div>
             <div class="clear"></div>
         </div>
-        <br/>
-        <input type="text" id="fldName" value="image"/>
-        <input type="button" id="btnSave" value="Save"/>
-        <input type="button" id="btnLoad" value="Load"/>
-        <input type="button" id="btnDownload" value="Download"/>
+        
+        <canvas id="main_canvas" width="640" height="480"></canvas>
         
         
         <script type="text/javascript" src="utils.js"></script>
