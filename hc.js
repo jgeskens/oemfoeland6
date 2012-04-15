@@ -33,7 +33,7 @@ $(function(){
             {
                 console.log(name);
                 console.log(value);
-                if ($('input.field[name="' + name + '"][type!="checkbox"][type!="radio"]').val(value).length === 0)
+                if ($(':input.field[name="' + name + '"][type!="checkbox"][type!="radio"]').val(value).length === 0)
                     $('input.field[name="' + name + '"][value="' + value.replace(/"/g, "\\\"") + '"]').attr('checked', true);
             }
         }
@@ -118,6 +118,10 @@ $(function(){
             }
             console.log(currentCardId);
             console.log(cards);
+        });
+        
+        $('input.runCode').unbind().click(function(){
+            executeCode($(':input[name=code]').val());
         });
     };
     startup();
